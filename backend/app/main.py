@@ -56,7 +56,9 @@ app.include_router(dashboard.router)
 
 
 
-
+@app.head("/")
+def health_check():
+    return {}
 
 # Root Endpoint
 @app.get("/")
@@ -65,3 +67,5 @@ def root():
         "message": "Inventory Management API Running",
         "status": "success"
     }
+
+   
