@@ -24,14 +24,19 @@ app = FastAPI(
 )
 
 # CORS Configuration
+from fastapi.middleware.cors import CORSMiddleware
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Change later in production
+    allow_origins=[
+        "http://localhost:3000",
+        "http://localhost:5173",
+        "https://inventory-management-system-omega-three.vercel.app",
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
 
 from fastapi.middleware.cors import CORSMiddleware
 
